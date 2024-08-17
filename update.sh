@@ -8,3 +8,4 @@ echo "Committing and pushing changes..."
 date_time=$(date +"%Y-%m-%d %H:%M:%S")
 git add --all
 git commit -m "Config update $date_time"
+git push
