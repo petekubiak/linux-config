@@ -14,10 +14,10 @@ date_time=$(date +"%Y-%m-%d@%H:%M:%S")
 git add --all
 git diff --staged
 read -p 'Please enter a commit message: '$commit_message
-if [[ -z $commit_message ]]; then
-  commit_message="Config update $date_time"
-else
+if [[ $commit_message ]]; then
   commit_message="Config update $date_time: $commit_message"
+else
+  commit_message="Config update $date_time"
 fi
 git commit -m "Config update $date_time"
 git push
