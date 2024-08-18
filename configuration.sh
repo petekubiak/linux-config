@@ -3,6 +3,9 @@
 echo "Installing i3..."
 sudo apt update && sudo apt install xorg xinit i3
 
+echo "Installing alacritty..."
+sudo apt install alacritty
+
 echo "Setting up autologin service..."
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
 sudo echo `[Service]
