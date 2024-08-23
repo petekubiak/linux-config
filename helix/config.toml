@@ -2,3 +2,6 @@ theme = "autumn"
 
 [keys.insert]
 j = {k = "normal_mode"}
+
+[editor]
+bufferline = "multiple"
