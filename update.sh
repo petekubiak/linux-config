@@ -13,7 +13,7 @@ echo "Committing and pushing changes..."
 date_time=$(date +"%Y-%m-%d@%H:%M:%S")
 git add --all
 git diff --staged
-read -p 'Please enter a commit message: '$commit_message
+read -p 'Please enter a commit message: ' commit_message
 if [[ $commit_message ]]; then
   commit_message="Config update $date_time: $commit_message"
 else
