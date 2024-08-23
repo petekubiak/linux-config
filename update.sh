@@ -9,6 +9,10 @@ mkdir -p i3
 cp ~/.config/i3/config i3/
 sudo cp /etc/i3status.conf i3/
 
+echo "Backing up alacritty config..."
+mkdir -p alacritty
+cp ~/.config/alacritty/alacritty.toml alacritty/
+
 echo "Committing and pushing changes..."
 date_time=$(date +"%Y-%m-%d@%H:%M:%S")
 git add --all
