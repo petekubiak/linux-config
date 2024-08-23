@@ -1,0 +1,7 @@
+[keyboard]
+bindings = [
+  { key = "n", mods = "Control | Shift", action = "CreateNewWindow"}
+]
+
+[mouse]
+hide_when_typing = true
