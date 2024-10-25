@@ -1,7 +1,24 @@
 theme = "autumn"
 
-[keys.insert]
-j = {k = "normal_mode"}
-
 [editor]
+auto-save = true
 bufferline = "multiple"
+terminal.command = "bash"
+terminal.args = ["-c"]
+lsp = { display-inlay-hints = true }
+
+[keys.normal]
+C-g = ["search_selection", "global_search"]
+C-l = ["kill_to_line_end", "insert_mode"]
+C-h = ["kill_to_line_start", "insert_mode"]
+
+[keys.normal.backspace]
+r = ":sh cargo run"
+t = ":sh cargo test"
+d = ":sh tree -I target"
+l = ":o ~/.config/helix/languages.toml"
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.select]

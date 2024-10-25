@@ -1,7 +1,21 @@
-[keyboard]
-bindings = [
-  { key = "n", mods = "Control | Shift", action = "CreateNewWindow"}
-]
+[font]
+size = 8.0
 
-[mouse]
-hide_when_typing = true
+[font.bold]
+family = "SauceCodeProNerdFontMono"
+style = "Bold"
+
+[font.bold_italic]
+family = "SauceCodeProNerdFontMono"
+style = "Bold Italic"
+
+[font.italic]
+family = "SauceCodeProNerdFontMono"
+style = "Italic"
+
+[font.normal]
+family = "SauceCodeProNerdFontMono"
+style = "Regular"
+
+[keyboard]
+bindings = [{ key = "n", mods = "Control | Shift", action = "CreateNewWindow" }]

@@ -1,6 +1,77 @@
 [[language]]
 name = "rust"
-formatter = {command = "rustfmt"}
+auto-format = true
+formatter = { command = "rustfmt", args = ["--edition", "2021"] }
 
-[language-server.rust-analyzer.config.check]
-command = "clippy"
+[language-server.rust-analyzer.config]
+check = { command = "clippy" }
+completion.callable.snippets = "add_parentheses"
+
+[language-server.rust-analyzer.config.inlayHints]
+bindingModeHints.enable = true
+# closureCaptureHints.enable = true
+# closureReturnTypeHints.enable = "always"
+discriminantHints.enable = "always"
+# expressionAdjustmentHints.enable = "always"
+genericParameterHints = { const.enable = true, type.enable = true }
+# lifetimeElisionHints = { enable = "always", useParameterNames = true }
+
+[language.debugger]
+command = "lldb-dap"
+name = "lldb-dap"
+transport = "stdio"
+
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+[[language.debugger.templates.completion]]
+completion = "filename"
+name = "binary"
+
+[language.debugger.templates.args]
+program = "{0}"
+initCommands = [
+  "command script import /usr/local/etc/lldb_vscode_rustc_primer.py",
+]
+runInTerminal = true
+
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
+
+[[language]]
+name = "c"
+language-servers = ["clangd-12"]
+formatter = { command = "clangd-format-12", args = ["-style=file"] }
+auto-format = false
+[language-server.clangd-12]
+command = "clangd-12"
+args = ["--compile-commands-dir=*/build/"]
+
+
+[[language]]
+name = "yaml"
+# auto-format = true
+formatter = { command = "yamlfmt", args = [
+  "-",
+  "-conf ~/.config/helix/yamlfmt.yaml",
+] }
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}"
+
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[language-server.golangci-lint-lsp.config]
+command = []
