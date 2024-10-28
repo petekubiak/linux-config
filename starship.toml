@@ -1,0 +1,81 @@
+format = """
+[](colour_daylight)\
+$directory\
+[](fg:colour_daylight bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+${custom.docker}\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+\n$character"""
+
+palette = 'tokyo_night'
+
+[palettes.tokyo_night]
+colour_bluegrey = '#a3aed2'
+colour_daylight = '#769ff0'
+colour_twilight = '#394260'
+colour_dusk = '#212736'
+colour_night = '#1d2230'
+
+[directory]
+style = "fg:#090c0c bg:colour_daylight"
+format = "[$path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:colour_twilight"
+truncation_length = 32
+format = '[[ $symbol $branch ](fg:colour_daylight bg:#394260)]($style)'
+
+[git_status]
+style = "bg:colour_twilight"
+format = '[[($all_status$ahead_behind )](fg:colour_daylight bg:#394260)]($style)'
+
+[custom.docker]
+# command = '''grep 'version:' docker-compose.yml | awk '{print $2}' | sed "s/[\"']//g"''''
+command = '''grep 'version:' docker-compose.yml | awk '{print $2}' | sed "s/[\"']//g"'''
+detect_files = ['docker-compose.yml']
+symbol = "🐋"
+style = "bg:colour_dusk"
+format = '[[ $symbol v($output) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
+[rust]
+symbol = "🦀"
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
+[php]
+symbol = ""
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:colour_night"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
