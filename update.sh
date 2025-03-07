@@ -13,6 +13,10 @@ echo "Backing up alacritty config..."
 mkdir -p alacritty
 cp ~/.config/alacritty/alacritty.toml alacritty/
 
+echo "Backing up starship config..."
+mkdir -p starship
+cp ~/.config/starship.toml starship/
+
 echo "Committing and pushing changes..."
 date_time=$(date +"%Y-%m-%d@%H:%M:%S")
 git add --all

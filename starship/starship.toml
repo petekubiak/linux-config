@@ -1,28 +1,30 @@
 format = """
 [](colour_daylight)\
 $directory\
-[](fg:colour_daylight bg:#394260)\
+[](fg:colour_daylight bg:colour_twilight)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:colour_twilight bg:colour_dusk)\
 ${custom.docker}\
 $nodejs\
 $rust\
 $golang\
+$python\
 $php\
-[](fg:#212736 bg:#1d2230)\
+$zig\
+[](fg:colour_dusk bg:colour_night)\
 $time\
-[ ](fg:#1d2230)\
+[ ](fg:colour_night)\
 \n$character"""
 
 palette = 'tokyo_night'
 
 [palettes.tokyo_night]
 colour_bluegrey = '#a3aed2'
-colour_daylight = '#769ff0'
-colour_twilight = '#394260'
-colour_dusk = '#212736'
-colour_night = '#1d2230'
+colour_daylight = '#ff7518'
+colour_twilight = '#733618'
+colour_dusk = '#4c2f2f'
+colour_night = '#331a0d'
 
 [directory]
 style = "fg:#090c0c bg:colour_daylight"
@@ -40,17 +42,17 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:colour_twilight"
 truncation_length = 32
-format = '[[ $symbol $branch ](fg:colour_daylight bg:#394260)]($style)'
+format = '[[ $symbol $branch ](fg:colour_daylight bg:colour_twilight)]($style)'
 
 [git_status]
 style = "bg:colour_twilight"
-format = '[[($all_status$ahead_behind )](fg:colour_daylight bg:#394260)]($style)'
+format = '[[($all_status$ahead_behind )](fg:colour_daylight bg:colour_twilight)]($style)'
 
 [custom.docker]
 # command = '''grep 'version:' docker-compose.yml | awk '{print $2}' | sed "s/[\"']//g"''''
 command = '''grep 'version:' docker-compose.yml | awk '{print $2}' | sed "s/[\"']//g"'''
 detect_files = ['docker-compose.yml']
-symbol = "🐋"
+symbol = ""
 style = "bg:colour_dusk"
 format = '[[ $symbol v($output) ](fg:colour_daylight bg:colour_dusk)]($style)'
 
@@ -60,7 +62,7 @@ style = "bg:colour_dusk"
 format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
 
 [rust]
-symbol = "🦀"
+symbol = ""
 style = "bg:colour_dusk"
 format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
 
@@ -69,13 +71,22 @@ symbol = ""
 style = "bg:colour_dusk"
 format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
 
+[python]
+symbol = ""
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) (\($virtualenv\) )](fg:colour_daylight bg:colour_dusk)]($style)'
+
 [php]
 symbol = ""
 style = "bg:colour_dusk"
 format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
 
+[zig]
+style = "bg:colour_dusk"
+format = '[[ $symbol ($version) ](fg:colour_daylight bg:colour_dusk)]($style)'
+
 [time]
 disabled = false
-time_format = "%R"                                      # Hour:Minute Format
+time_format = "%R"                                           # Hour:Minute Format
 style = "bg:colour_night"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+format = '[[  $time ](fg:#a0a9cb bg:colour_night)]($style)'

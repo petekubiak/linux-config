@@ -199,4 +199,4 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -c "backlight" 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -c "backlight" s +10%
 
 # Keybinding for bluetooth headset toggle script
-bindsym Ctrl+$mod+b exec /home/pkubiak/bin/toggle_headphones.sh
+bindsym $mod+b exec /home/pkubiak/bin/toggle_headphones.sh

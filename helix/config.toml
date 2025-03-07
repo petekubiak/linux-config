@@ -3,9 +3,24 @@ theme = "autumn"
 [editor]
 auto-save = true
 bufferline = "multiple"
-terminal.command = "bash"
-terminal.args = ["-c"]
-lsp = { display-inlay-hints = true }
+soft-wrap.enable = true
+end-of-line-diagnostics = "hint"
+
+[editor.terminal]
+command = "bash"
+args = ["-c"]
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+display-progress-messages = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+other-lines = "error"
 
 [keys.normal]
 C-g = ["search_selection", "global_search"]
